@@ -1,0 +1,52 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - node_modules/**/*
+    - misc/*
+    - bin/*
+    - vendor/**/*
+  TargetRubyVersion: '2.7'
+
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+    - spec/**/*
+    - config/environments/**/*
+    - config/routes.rb
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 17
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 25
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/MultipleExpectations:
+  Max: 7
+
+RSpec/ExampleLength:
+  Max: 15
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10

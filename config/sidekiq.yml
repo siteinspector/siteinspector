@@ -1,0 +1,12 @@
+---
+
+default_settings: &default_settings
+  :queues:
+    - [default, 1]
+    - [dynamic, 1]
+
+development:
+  <<: *default_settings
+
+production:
+  <<: *default_settings

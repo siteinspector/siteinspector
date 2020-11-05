@@ -1,0 +1,25 @@
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+  timeout: 5000
+  min_messages: warning
+
+development:
+  primary:
+    <<: *common
+    database: siteinspector_dev
+    username: postgres
+    password: postgres
+    host: localhost
+
+test:
+  primary:
+    <<: *common
+    database: siteinspector_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+production:
+  primary:
+    adapter: postgresql
+    pool: 10
+    url: <%= ENV["DATABASE_URL"] %>

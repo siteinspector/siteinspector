@@ -1,0 +1,69 @@
+name: Rspec
+on: push
+
+jobs:
+  verify:
+    name: Build
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_USER: siteinspector
+          POSTGRES_DB: siteinspector_test
+          POSTGRES_PASSWORD: siteinspector
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports:
+        - 6379:6379
+        options: --entrypoint redis-server
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.7.1
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.1
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.16.1
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+      - name: Cache gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+      - name: Install dependencies
+        env:
+          RAILS_ENV: test
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install chromium-browser
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+          yarn install
+      - name: Run
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://siteinspector:siteinspector@localhost:5432/siteinspector
+          REDIS_URL: redis://localhost:6379/0
+          COVERAGE: true
+        run: |
+          rake db:setup
+          rake assets:precompile
+          bundle exec rspec

@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "standard",
+    "plugin:vue/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "parser": "babel-eslint"
+  }
+}

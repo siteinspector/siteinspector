@@ -1,0 +1,24 @@
+{
+  "name": "SiteInspector",
+  "description": "A tool to catch spelling errors, grammatical errors, and broken links on websites",
+  "repository": "https://github.com/siteinspector/siteinspector",
+  "logo": "https://www.getsiteinspector.com/logo.png",
+  "keywords": ["siteinspector", "spelling", "grammar"],
+  "addons": ["heroku-postgresql", "heroku-redis"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby.git"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "rake db:migrate"
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    }
+  }
+}

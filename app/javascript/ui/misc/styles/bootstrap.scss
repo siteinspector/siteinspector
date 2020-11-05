@@ -1,0 +1,13 @@
+$primary: #6190e8;
+
+$theme-colors: (
+  'primary': $primary
+);
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/utilities';
+@import 'share/styles/border_utils';

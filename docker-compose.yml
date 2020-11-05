@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    depends_on:
+      - 'postgres'
+      - 'redis'
+    image: 'siteinspector/siteinspector:latest'
+    ports:
+      - '808:808'
+    volumes:
+      - '.:/app'
+    command:  bash -c "rake db:migrate && foreman start"
+    environment:
+      SECRET_KEY_BASE:
+      RAILS_LOG_TO_STDOUT: 'true'
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/siteinspector
+      REDIS_URL: redis://redis:6379/0
+      PORT: 808
+      SIDEKIQ_CONCURRENCY: 10
+
+  postgres:
+    image: 'postgres:12.2'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: siteinspector
+
+  redis:
+    image: 'redis:5.0'
+    command: redis-server
+    volumes:
+      - 'redis:/data'
+
+volumes:
+  redis:
+  postgres:
