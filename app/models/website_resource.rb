@@ -24,7 +24,8 @@
 #
 class WebsiteResource < ApplicationRecord
   TYPES = Crawler::RESOURCE_TYPES
-  STATUSES = Crawler::STATUSES + %w[excluded]
+  EXCLUDED = 'excluded'
+  STATUSES = Crawler::STATUSES + [EXCLUDED]
 
   belongs_to :website
 
@@ -43,4 +44,8 @@ class WebsiteResource < ApplicationRecord
 
   scope :broken, -> { where(status: %w[not_found invalid unavailable unknown]) }
   scope :links, -> { where(resource_type: :link) }
+
+  def excluded?
+    status == EXCLUDED
+  end
 end
