@@ -12,7 +12,7 @@ module UrlUtils
   # @param url [String]
   # @return [String]
   def extract_domain(url)
-    url.sub(%r{\Ahttps?://(?:www\.)?}, '').split('/').first
+    url.sub(%r{\Ahttps?://(?:www\.)?}, '').split(%r{[/?]}).first
   end
 
   # @param link [String]
