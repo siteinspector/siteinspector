@@ -7,7 +7,7 @@ ruby '2.7.1'
 gem 'addressable'
 gem 'bootsnap', require: false
 gem 'cancancan'
-gem 'cld'
+gem 'cld-2018', require: 'cld'
 gem 'devise'
 gem 'jsonapi-serializer', require: 'fast_jsonapi'
 gem 'jwt'

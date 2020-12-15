@@ -81,8 +81,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    cld (0.8.0)
-      ffi
+    cld-2018 (1.1.3)
+      ffi (~> 1.10)
     cliver (0.3.2)
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
@@ -309,7 +309,7 @@ DEPENDENCIES
   brakeman
   cancancan
   capybara
-  cld
+  cld-2018
   cuprite
   devise
   factory_bot_rails
