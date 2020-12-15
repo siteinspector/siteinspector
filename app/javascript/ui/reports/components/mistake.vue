@@ -4,7 +4,7 @@
     class="row mt-3"
     :class="{ resolved: mistake.status === 'resolved' }"
   >
-    <div class="col-6 col-lg-3 d-flex align-items-center pr-1">
+    <div class="col-6 col-lg-3 d-flex align-items-center pe-1">
       <Checkbox
         v-if="editable"
         size="large"

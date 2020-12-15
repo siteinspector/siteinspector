@@ -16,7 +16,7 @@
             Page:
           </b>
           <a
-            class="font-weight-bold text-break-all"
+            class="fw-bold text-break-all"
             rel="noopener noreferrer nofollow"
             target="_blank"
             :href="page.url"

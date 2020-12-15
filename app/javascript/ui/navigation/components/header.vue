@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row">
           <div
-            class="d-none d-lg-block col-lg-3 pr-0"
+            class="d-none d-lg-block col-lg-3 pe-0"
             style="max-height: 0px"
           >
             <span class="h2">

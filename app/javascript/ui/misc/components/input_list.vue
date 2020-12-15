@@ -13,7 +13,7 @@
             @input="updateValues"
           />
           <IButton
-            class="ml-2"
+            class="ms-2"
             icon="md-trash"
             @click="handleRemove(index)"
           />

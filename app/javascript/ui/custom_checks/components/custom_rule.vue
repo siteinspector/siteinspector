@@ -2,7 +2,7 @@
   <Card>
     <div class="d-flex justify-content-between">
       <p
-        class="h2 font-weight-bold text-break-all"
+        class="h2 fw-bold text-break-all"
       >
         <a
           :href="website.url"

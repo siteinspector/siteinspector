@@ -1,7 +1,7 @@
 <template>
   <Card>
     <div class="row">
-      <div class="border-right-0 border-lg-right col-12 col-lg-3 mb-3 mb-lg-0 d-flex flex-column justify-content-between text-lg-left text-center">
+      <div class="border-right-0 border-lg-right col-12 col-lg-3 mb-3 mb-lg-0 d-flex flex-column justify-content-between text-lg-start text-center">
         <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
           <div>
             <a

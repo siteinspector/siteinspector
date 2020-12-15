@@ -1,7 +1,7 @@
 <template>
   <Spin>
     <div class="d-flex align-items-center">
-      <div class="mr-1">
+      <div class="me-1">
         Scanning
       </div>
       <Icon

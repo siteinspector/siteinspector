@@ -3,7 +3,7 @@
     {{ contextParts[0] }}<span
       v-clipboard:copy="mistake.text"
       v-clipboard:success="onCopy"
-      class="text-decoration-underline pointer-cursor text-danger font-weight-bold"
+      class="text-decoration-underline pointer-cursor text-danger fw-bold"
     >{{ mistake.text }}</span>{{ contextParts[1] }}
   </span>
 </template>
