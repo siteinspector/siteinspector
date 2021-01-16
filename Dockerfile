@@ -1,4 +1,4 @@
-FROM ruby:2.7.1
+FROM ruby:3.0.0
 
 ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=true

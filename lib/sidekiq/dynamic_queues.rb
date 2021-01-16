@@ -4,7 +4,7 @@ module Sidekiq
   module DynamicQueues
     DYNAMIC_QUEUE_PREFIX = 'dynamic:'
 
-    DYNAMIC_QUEUES = ::SortedSet.new
+    DYNAMIC_QUEUES = Set.new
 
     WATCHER = Concurrent::TimerTask.new(
       run_now: true,

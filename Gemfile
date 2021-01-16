@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.1'
+ruby '3.0.0'
 
 gem 'addressable'
 gem 'bootsnap', require: false
@@ -50,4 +50,5 @@ group :test do
   gem 'cuprite'
   gem 'rspec-rails'
   gem 'webmock'
+  gem 'webrick'
 end

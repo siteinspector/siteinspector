@@ -27,14 +27,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby 2.7.1
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.1
+          ruby-version: 3.0.0
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.16.1
+          node-version: 14.15.4
       - name: Cache node_modules
         uses: actions/cache@v1
         with:

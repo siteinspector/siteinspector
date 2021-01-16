@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby 2.7.1
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.1
+          ruby-version: 3.0.0
       - name: Install required package
         run: |
           sudo apt-get update

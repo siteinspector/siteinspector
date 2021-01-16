@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.16.1
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.16.1
+          node-version: 14.15.4
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
