@@ -64,6 +64,6 @@ jobs:
           REDIS_URL: redis://localhost:6379/0
           COVERAGE: true
         run: |
-          rake db:setup
-          rake assets:precompile
+          bundle exec rake db:setup
+          bundle exec rake assets:precompile
           bundle exec rspec
