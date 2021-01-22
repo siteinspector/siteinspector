@@ -20,7 +20,6 @@
 
 <script>
 import Website from '../components/website'
-import VERSION from 'ui/version'
 
 export default {
   name: 'ReportsShow',
@@ -32,7 +31,7 @@ export default {
       return this.$store.getters.websites[0]
     },
     version () {
-      return VERSION
+      return process.env.VERSION
     }
   }
 }

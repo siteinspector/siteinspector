@@ -23,7 +23,7 @@
     "eslint": "./node_modules/eslint/bin/eslint.js \"app/javascript/**/*.{js,vue}\" --fix",
     "stylelint": "./node_modules/stylelint/bin/stylelint.js \"app/javascript/**/*.{scss,css,less}\" --fix"
   },
-  "version": "0.1.0",
+  "version": "1.0.2",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",

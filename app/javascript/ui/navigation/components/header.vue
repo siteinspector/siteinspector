@@ -80,7 +80,6 @@
 import WebsiteForm from 'ui/websites/components/form'
 import UserForm from 'ui/users/components/form'
 import { Dialog, Modal } from 'ui/misc/scripts/dynamic_components'
-import VERSION from 'ui/version'
 
 export default {
   name: 'MainHeader',
@@ -88,7 +87,7 @@ export default {
   },
   computed: {
     version () {
-      return VERSION
+      return process.env.VERSION
     },
     activeRoute () {
       if (this.$route.matched[0]?.name === 'report') {

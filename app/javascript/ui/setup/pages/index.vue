@@ -51,7 +51,6 @@
 import UserForm from 'ui/users/components/form'
 import WebsiteForm from 'ui/websites/components/form'
 import SubscribeForm from 'ui/settings/components/subscribe_form'
-import VERSION from 'ui/version'
 
 export default {
   name: 'SetupIndex',
@@ -67,7 +66,7 @@ export default {
   },
   computed: {
     version () {
-      return VERSION
+      return process.env.VERSION
     }
   },
   methods: {
