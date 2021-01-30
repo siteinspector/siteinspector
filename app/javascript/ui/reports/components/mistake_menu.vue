@@ -12,15 +12,10 @@
 </template>
 
 <script>
-import Cell from 'view-design/src/components/cell'
 import api from 'ui/api'
 
 export default {
   name: 'MistakeMenu',
-  components: {
-    Cell,
-    CellGroup: Cell.Group
-  },
   props: {
     mistake: {
       type: Object,
@@ -34,7 +29,7 @@ export default {
       }
     },
     handleFalsePositive (params) {
-      this.$set(this.mistake, 'loading', true)
+      this.mistake.loading = true
 
       api.post(`website_page_errors/${this.mistake.id}/mark_false_positive`, {
         ...params

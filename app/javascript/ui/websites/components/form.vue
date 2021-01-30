@@ -17,7 +17,7 @@
     <Collapse simple>
       <Panel name="1">
         Configure
-        <div slot="content">
+        <template #content>
           <Divider>Exclude paths</Divider>
           <InputList
             v-model="website.preferences.exclude_paths"
@@ -33,9 +33,14 @@
                 v-model="website.preferences.check_spelling_and_grammar"
                 size="large"
               >
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
+                <template #open>
+                  On
+                </template>
+                <template #close>
+                  Off
+                </template>
               </ISwitch>
+              {{ ' ' }}
               <label>Spelling and grammar</label>
             </div>
             <div class="col-6 ivu-form-item">
@@ -43,9 +48,14 @@
                 v-model="website.preferences.check_links"
                 size="large"
               >
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
+                <template #open>
+                  On
+                </template>
+                <template #close>
+                  Off
+                </template>
               </ISwitch>
+              {{ ' ' }}
               <label>Links</label>
             </div>
             <div class="col-6 ivu-form-item">
@@ -53,9 +63,14 @@
                 v-model="website.preferences.check_images"
                 size="large"
               >
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
+                <template #open>
+                  On
+                </template>
+                <template #close>
+                  Off
+                </template>
               </ISwitch>
+              {{ ' ' }}
               <label>Images</label>
             </div>
             <div class="col-6 ivu-form-item">
@@ -63,13 +78,18 @@
                 v-model="website.preferences.check_scripts"
                 size="large"
               >
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
+                <template #open>
+                  On
+                </template>
+                <template #close>
+                  Off
+                </template>
               </ISwitch>
+              {{ ' ' }}
               <label>Scripts</label>
             </div>
           </div>
-        </div>
+        </template>
       </Panel>
     </Collapse>
     <IButton

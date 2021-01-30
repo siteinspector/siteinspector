@@ -11,10 +11,10 @@
           size="large"
           class="bg-white"
           type="primary"
+          icon="md-share"
           ghost
           @click="openShareModal"
         >
-          <Icon type="md-share" />
           <span class="d-none d-md-inline"> Share Report </span>
         </IButton>
       </div>
@@ -32,7 +32,7 @@
 <script>
 import Website from '../components/website'
 import ShareForm from '../components/share'
-import { Modal } from 'ui/misc/scripts/dynamic_components'
+import { Modal } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'ReportsIndex',
@@ -47,10 +47,8 @@ export default {
   methods: {
     openShareModal () {
       Modal.open(ShareForm, {
-        on: {
-          close: (data) => {
-            Modal.remove()
-          }
+        onClose: (data) => {
+          Modal.remove()
         }
       }, {
         title: 'Share report',

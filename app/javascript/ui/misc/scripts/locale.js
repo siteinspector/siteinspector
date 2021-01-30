@@ -1,5 +1,5 @@
-import locale from 'view-design/src/locale'
-import en from 'view-design/src/locale/lang/en-US'
+import locale from 'view3/src/locale'
+import en from 'view3/src/locale/lang/en-US'
 
 locale.use(Object.assign(en, {
   marked_as_resolved: 'Marked as Resolved',

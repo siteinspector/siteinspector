@@ -9,10 +9,10 @@
           size="large"
           class="bg-white"
           type="primary"
+          icon="md-add"
           ghost
           @click="openAddRuleModal"
         >
-          <Icon type="md-add" />
           <span class="d-none d-md-inline">Add Rule</span>
         </IButton>
       </div>
@@ -39,11 +39,11 @@
     <IButton
       size="large"
       class="mt-3"
+      icon="md-add"
       long
       type="dashed"
       @click="openAddRuleModal"
     >
-      <Icon type="md-add" />
       Add Rule
     </IButton>
   </div>
@@ -53,7 +53,7 @@
 import api from 'ui/api'
 import CustomRule from '../components/custom_rule'
 import CustomRuleForm from '../components/form'
-import { Modal, Message } from 'ui/misc/scripts/dynamic_components'
+import { Modal, Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'CustomRulesIndex',
@@ -88,13 +88,11 @@ export default {
     },
     openAddRuleModal () {
       Modal.open(CustomRuleForm, {
-        on: {
-          success: () => {
-            Modal.remove()
-            Message.info('Custom check rule has been added')
+        onSuccess: () => {
+          Modal.remove()
+          Message.info('Custom check rule has been added')
 
-            this.loadRules()
-          }
+          this.loadRules()
         }
       }, {
         title: 'Add rule',

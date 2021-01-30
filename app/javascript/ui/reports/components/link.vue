@@ -12,7 +12,7 @@
     />
 
     <Tag
-      v-popover="{ confirm: true, title: 'Do now show this link again?', on: { 'on-ok': excludeLink }, trigger: 'click', disabled: !editable }"
+      v-popover="{ confirm: true, title: 'Do now show this link again?', onOnOk: excludeLink, trigger: 'click', disabled: !editable }"
       :color="statusClasses[link.status]"
     >
       {{ statusToText[link.status] }}
@@ -30,7 +30,7 @@
 <script>
 import api from 'ui/api'
 import locale from 'ui/misc/scripts/locale'
-import { Message } from 'ui/misc/scripts/dynamic_components'
+import { Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'Link',

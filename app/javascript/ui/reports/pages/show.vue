@@ -30,7 +30,7 @@
 <script>
 import Website from '../components/website'
 import ShareForm from '../components/share'
-import { Modal } from 'ui/misc/scripts/dynamic_components'
+import { Modal } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'ReportsShow',
@@ -45,13 +45,9 @@ export default {
   methods: {
     openShareModal () {
       Modal.open(ShareForm, {
-        props: {
-          website: this.website
-        },
-        on: {
-          close: (data) => {
-            Modal.remove()
-          }
+        website: this.website,
+        onClose: (data) => {
+          Modal.remove()
         }
       }, {
         title: 'Share report',

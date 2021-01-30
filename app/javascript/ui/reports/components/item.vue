@@ -24,6 +24,7 @@
             <span>
               {{ page.url }}
             </span>
+            {{ ' ' }}
             <Icon
               type="md-open"
               class="h2"
@@ -54,7 +55,6 @@
         class="mt-3"
         :hints="hints && index === 0"
         :mistake="mistake"
-        @update-status="mistake.status = $event"
         @remove="$emit('remove', $event)"
       />
     </div>

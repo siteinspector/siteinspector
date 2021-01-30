@@ -37,7 +37,7 @@ RSpec.describe 'Dashboard' do
     end
 
     it 'removes rule' do
-      find('.ivu-icon-md-trash').click
+      find('.ion-md-trash').click
 
       within '.ivu-modal-body' do
         click_on 'OK'

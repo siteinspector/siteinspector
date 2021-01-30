@@ -78,7 +78,7 @@
 
 <script>
 import api from 'ui/api'
-import { deepCopy } from 'view-design/src/utils/assist'
+import { deepCopy } from 'view3/src/utils/assist'
 
 export default {
   name: 'SetupForm',

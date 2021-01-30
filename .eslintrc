@@ -3,6 +3,9 @@
     "standard",
     "plugin:vue/recommended"
   ],
+  "rules": {
+    "vue/no-mutating-props": 0
+  },
   "parserOptions": {
     "ecmaVersion": 2018,
     "parser": "babel-eslint"

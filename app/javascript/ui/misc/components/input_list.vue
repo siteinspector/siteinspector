@@ -41,7 +41,7 @@
 export default {
   name: 'InputList',
   props: {
-    value: {
+    modelValue: {
       type: Array,
       required: true
     },
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     assignsItems () {
-      this.items = this.value.map((item, index) => {
+      this.items = this.modelValue.map((item, index) => {
         return {
           value: item,
           index: index
@@ -76,7 +76,7 @@ export default {
     updateValues () {
       const value = this.items.map((item) => item.value).filter(value => value)
 
-      this.$emit('input', value)
+      this.$emit('update:modelValue', value)
     },
     handleRemove (index) {
       this.items.splice(index, 1)

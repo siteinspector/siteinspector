@@ -9,7 +9,7 @@
         v-if="editable"
         size="large"
         class="circle-checkbox"
-        :value="mistake.status === 'resolved'"
+        :model-value="mistake.status === 'resolved'"
         @on-change="updateStatus"
       />
 
@@ -59,7 +59,7 @@
           class="h2 ivu-btn ivu-btn-text ivu-btn-icon-only more-button"
           @click.stop="openContextMenu"
         >
-          <i class="ivu-icon ivu-icon-md-more" />
+          <i class="ion ion-md-more" />
         </button>
       </div>
     </div>
@@ -75,8 +75,7 @@
 import api from 'ui/api'
 import Context from './context'
 import MistakeMenu from './mistake_menu'
-import DynamicPopover from 'ui/misc/scripts/dynamic_popover'
-import { Message } from 'ui/misc/scripts/dynamic_components'
+import { Popover, Message } from 'view3/src/plugins/dynamic-components'
 import locale from 'ui/misc/scripts/locale'
 
 export default {
@@ -105,28 +104,24 @@ export default {
       Message.info('Copied to the clipboard')
     },
     openContextMenu (event) {
-      DynamicPopover.show(event.target, MistakeMenu, {
-        props: {
-          mistake: this.mistake
-        },
-        on: {
-          remove: (type) => {
-            DynamicPopover.remove()
-            Message.info('Marked as false positive')
-            this.$emit('remove', [this.mistake, type])
-          }
+      Popover.show(event.target, MistakeMenu, {
+        mistake: this.mistake,
+        onRemove: (type) => {
+          Popover.remove()
+          Message.info('Marked as false positive')
+          this.$emit('remove', [this.mistake, type])
         }
       })
     },
     updateStatus (value) {
-      this.$emit('update-status', value ? 'resolved' : 'pending')
+      this.mistake.status = value ? 'resolved' : 'pending'
 
       return api.put(`website_page_errors/${this.mistake.id}`, {
         website_page_error: {
           status: this.mistake.status
         }
       }).then((result) => {
-        this.$emit('update-status', result.data.data.status)
+        this.mistake.status = result.data.data.status
 
         if (result.data.data.status) {
           Message.info(locale.t(`marked_as_${result.data.data.status}`))

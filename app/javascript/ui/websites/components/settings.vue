@@ -36,9 +36,14 @@
             v-model="preferences.check_spelling_and_grammar"
             size="large"
           >
-            <span slot="open">On</span>
-            <span slot="close">Off</span>
+            <template #open>
+              On
+            </template>
+            <template #close>
+              Off
+            </template>
           </ISwitch>
+          {{ ' ' }}
           <label>Spelling and grammar</label>
         </div>
         <div class="col-6 ivu-form-item">
@@ -46,9 +51,14 @@
             v-model="preferences.check_links"
             size="large"
           >
-            <span slot="open">On</span>
-            <span slot="close">Off</span>
+            <template #open>
+              On
+            </template>
+            <template #close>
+              Off
+            </template>
           </ISwitch>
+          {{ ' ' }}
           <label>Links</label>
         </div>
         <div class="col-6 ivu-form-item">
@@ -56,9 +66,14 @@
             v-model="preferences.check_images"
             size="large"
           >
-            <span slot="open">On</span>
-            <span slot="close">Off</span>
+            <template #open>
+              On
+            </template>
+            <template #close>
+              Off
+            </template>
           </ISwitch>
+          {{ ' ' }}
           <label>Images</label>
         </div>
         <div class="col-6 ivu-form-item">
@@ -66,9 +81,14 @@
             v-model="preferences.check_scripts"
             size="large"
           >
-            <span slot="open">On</span>
-            <span slot="close">Off</span>
+            <template #open>
+              On
+            </template>
+            <template #close>
+              Off
+            </template>
           </ISwitch>
+          {{ ' ' }}
           <label>Scripts</label>
         </div>
       </div>
@@ -108,7 +128,7 @@
 <script>
 import api from 'ui/api'
 import InputList from 'ui/misc/components/input_list'
-import { Dialog, Message } from 'ui/misc/scripts/dynamic_components'
+import { Dialog, Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'WebsiteSettings',

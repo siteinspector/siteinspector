@@ -96,7 +96,7 @@
 <script>
 import api from 'ui/api'
 import CustomRuleForm from '../components/form'
-import { Modal, Message, Dialog } from 'ui/misc/scripts/dynamic_components'
+import { Modal, Message, Dialog } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'CustomRule',
@@ -155,17 +155,13 @@ export default {
     },
     openUpdateModal () {
       Modal.open(CustomRuleForm, {
-        props: {
-          rule: this.rule
-        },
-        on: {
-          success: (rule) => {
-            Modal.remove()
+        rule: this.rule,
+        onSuccess: (rule) => {
+          Modal.remove()
 
-            Message.info('Custom check rule has been updated')
+          Message.info('Custom check rule has been updated')
 
-            this.$emit('update', rule)
-          }
+          this.$emit('update', rule)
         }
       }, {
         title: 'Update rule',

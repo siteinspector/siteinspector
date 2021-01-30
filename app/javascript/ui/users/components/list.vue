@@ -24,7 +24,7 @@
 <script>
 import User from './user'
 import UserForm from './form'
-import { Modal, Message } from 'ui/misc/scripts/dynamic_components'
+import { Modal, Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'UsersList',
@@ -40,13 +40,11 @@ export default {
   methods: {
     openAddUserModal () {
       Modal.open(UserForm, {
-        on: {
-          success: (data) => {
-            Modal.remove()
-            Message.info(`${data.email} user has been added`)
+        onSuccess: (data) => {
+          Modal.remove()
+          Message.info(`${data.email} user has been added`)
 
-            this.$emit('update')
-          }
+          this.$emit('update')
         }
       }, {
         closable: true

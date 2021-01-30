@@ -1,5 +1,5 @@
 <template>
-  <Header>
+  <IHeader>
     <Menu
       mode="horizontal"
       :active-name="activeRoute"
@@ -49,15 +49,24 @@
               name="add"
             >
               <MenuItem name="add_website">
-                <Icon type="md-browsers" />
+                <Icon
+                  type="md-browsers"
+                  :style="'width: 16px'"
+                />
                 Add Website
               </MenuItem>
               <MenuItem name="add_rule">
-                <Icon type="md-compass" />
+                <Icon
+                  type="md-compass"
+                  :style="'width: 16px'"
+                />
                 Add Rule
               </MenuItem>
               <MenuItem name="add_user">
-                <Icon type="ios-person-add" />
+                <Icon
+                  type="ios-person-add"
+                  :style="'width: 16px'"
+                />
                 Add User
               </MenuItem>
             </Submenu>
@@ -73,18 +82,16 @@
         </div>
       </div>
     </Menu>
-  </Header>
+  </IHeader>
 </template>
 
 <script>
 import WebsiteForm from 'ui/websites/components/form'
 import UserForm from 'ui/users/components/form'
-import { Dialog, Modal } from 'ui/misc/scripts/dynamic_components'
+import { Dialog, Modal } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'MainHeader',
-  components: {
-  },
   computed: {
     version () {
       return process.env.VERSION
@@ -121,11 +128,9 @@ export default {
     },
     openAddWebsiteModal () {
       Modal.open(WebsiteForm, {
-        on: {
-          success: () => {
-            this.$router.push({ name: 'dashboard' })
-            Modal.remove()
-          }
+        onSuccess: () => {
+          this.$router.push({ name: 'dashboard' })
+          Modal.remove()
         }
       }, {
         title: 'Add website',
@@ -134,11 +139,9 @@ export default {
     },
     openAddUserModal () {
       Modal.open(UserForm, {
-        on: {
-          success: (data) => {
-            Dialog.info(`${data.email} user has been added`)
-            Modal.remove()
-          }
+        onSuccess: (data) => {
+          Dialog.info(`${data.email} user has been added`)
+          Modal.remove()
         }
       }, {
         title: 'Add user',

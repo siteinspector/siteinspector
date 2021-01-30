@@ -56,12 +56,12 @@
       role="signOutBtn"
       size="large"
       class="mt-3 bg-white"
+      icon="ios-log-out"
       long
       type="error"
       ghost
       @click="signOut"
     >
-      <Icon type="ios-log-out" />
       Sign Out
     </IButton>
   </div>
@@ -72,7 +72,7 @@ import api from 'ui/api'
 import UserForm from 'ui/users/components/form'
 import SubscribeForm from 'ui/settings/components/subscribe_form'
 import UsersList from 'ui/users/components/list'
-import { Message } from 'ui/misc/scripts/dynamic_components'
+import { Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'SettingsIndex',

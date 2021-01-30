@@ -12,7 +12,7 @@
         >
           <i
             v-if="confirm"
-            class="ivu-icon ivu-icon-ios-help-circle"
+            class="ion ion-ios-help-circle"
           />
           <div
             v-if="title"

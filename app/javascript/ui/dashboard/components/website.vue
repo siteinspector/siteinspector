@@ -46,6 +46,7 @@
           >
             Stop
           </IButton>
+          {{ ' ' }}
           <IButton
             type="primary"
             ghost
@@ -56,6 +57,7 @@
           >
             Info
           </IButton>
+          {{ ' ' }}
           <IButton
             size="small"
             type="primary"
@@ -93,7 +95,7 @@ import WebsiteInfo from 'ui/websites/components/info'
 import WebsiteSettings from 'ui/websites/components/settings'
 import Scanning from './scanning'
 import Stats from './stats'
-import { Drawer, Message } from 'ui/misc/scripts/dynamic_components'
+import { Drawer, Message } from 'view3/src/plugins/dynamic-components'
 import { formatDate } from 'ui/misc/scripts/format_date'
 
 export default {
@@ -131,7 +133,7 @@ export default {
       }
     })
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
   methods: {
@@ -205,16 +207,12 @@ export default {
     },
     openWebsiteSettings () {
       Drawer.open(WebsiteSettings, {
-        props: {
-          website: this.website
+        website: this.website,
+        onClose: () => {
+          Drawer.remove()
         },
-        on: {
-          close: () => {
-            Drawer.remove()
-          },
-          success: () => {
-            Drawer.remove()
-          }
+        onSuccess: () => {
+          Drawer.remove()
         }
       }, {
         title: `${this.website.domain} settings`,
@@ -224,9 +222,7 @@ export default {
     },
     openInfoModal () {
       Drawer.open(WebsiteInfo, {
-        props: {
-          website: this.website
-        }
+        website: this.website
       }, {
         title: `${this.website.domain} info`,
         closable: true

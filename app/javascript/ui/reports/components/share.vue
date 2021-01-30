@@ -30,7 +30,7 @@
         <IInput
           v-clipboard:copy="shareableLink"
           v-clipboard:success="onCopy"
-          :value="shareableLink"
+          :model-value="shareableLink"
           :readonly="true"
           prefix="md-link"
           size="large"
@@ -73,7 +73,7 @@
 
 <script>
 import api from 'ui/api'
-import { Message } from 'ui/misc/scripts/dynamic_components'
+import { Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'ShareForm',

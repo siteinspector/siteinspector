@@ -1,65 +1,84 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+
+import App from './app'
+
 import router from './router'
 import store from './store'
 
-import App from './app'
-import PopoverDirective from './misc/directives/popover'
-import VueClipboard from 'vue-clipboard2'
-import VueContentPlaceholders from 'vue-content-placeholders'
+import PopoverDirective from 'view3/src/directives/popover'
+import VueClipboard from 'view3/src/directives/clipboard'
 
-import Button from 'view-design/src/components/button'
-import Submenu from 'view-design/src/components/submenu'
-import Menu from 'view-design/src/components/menu'
-import MenuItem from 'view-design/src/components/menu-item'
-import Header from 'view-design/src/components/header'
-import Switch from 'view-design/src/components/switch'
-import Card from 'view-design/src/components/card'
-import Icon from 'view-design/src/components/icon'
-import Input from 'view-design/src/components/input'
-import Form from 'view-design/src/components/form'
-import Radio from 'view-design/src/components/radio'
-import Spin from 'view-design/src/components/spin'
-import Checkbox from 'view-design/src/components/checkbox'
-import Affix from 'view-design/src/components/affix'
-import Tag from 'view-design/src/components/tag'
-import Divider from 'view-design/src/components/divider'
-import Collapse from 'view-design/src/components/collapse'
-import Tooltip from 'view-design/src/components/tooltip'
-import { Select, Option } from 'view-design/src/components/select'
+import DynamicModal from 'view3/src/plugins/dynamic-modal'
+import DynamicDrawer from 'view3/src/plugins/dynamic-drawer'
+import DynamicPopover from 'view3/src/plugins/dynamic-popover'
 
-Vue.use(VueClipboard)
-Vue.use(VueContentPlaceholders)
+import Button from 'view3/src/components/button'
+import Submenu from 'view3/src/components/submenu'
+import Menu from 'view3/src/components/menu'
+import MenuItem from 'view3/src/components/menu-item'
+import Header from 'view3/src/components/header'
+import Switch from 'view3/src/components/switch'
+import Card from 'view3/src/components/card'
+import Icon from 'view3/src/components/icon'
+import Input from 'view3/src/components/input'
+import Form from 'view3/src/components/form'
+import FormItem from 'view3/src/components/form-item'
+import Radio from 'view3/src/components/radio'
+import RadioGroup from 'view3/src/components/radio-group'
+import Spin from 'view3/src/components/spin'
+import Checkbox from 'view3/src/components/checkbox'
+import Affix from 'view3/src/components/affix'
+import Tag from 'view3/src/components/tag'
+import Divider from 'view3/src/components/divider'
+import Collapse from 'view3/src/components/collapse'
+import Panel from 'view3/src/components/panel'
+import Tooltip from 'view3/src/components/tooltip'
+import Select from 'view3/src/components/select'
+import Option from 'view3/src/components/option'
+import Cell from 'view3/src/components/cell'
+import CellGroup from 'view3/src/components/cell-group'
 
-Vue.directive('popover', PopoverDirective)
+import ContentPlaceholders from 'vue-content-placeholders/src/components/ContentPlaceholders'
+import ContentPlaceholdersText from 'vue-content-placeholders/src/components/ContentPlaceholdersText'
 
-Vue.component('IButton', Button)
-Vue.component('ISwitch', Switch)
-Vue.component('Menu', Menu)
-Vue.component('Submenu', Submenu)
-Vue.component('MenuItem', MenuItem)
-Vue.component('Icon', Icon)
-Vue.component('Header', Header)
-Vue.component('Card', Card)
-Vue.component('IInput', Input)
-Vue.component('IForm', Form)
-Vue.component('FormItem', Form.Item)
-Vue.component('Spin', Spin)
-Vue.component('Checkbox', Checkbox)
-Vue.component('Affix', Affix)
-Vue.component('Tag', Tag)
-Vue.component('Divider', Divider)
-Vue.component('Radio', Radio)
-Vue.component('RadioGroup', Radio.Group)
-Vue.component('Collapse', Collapse)
-Vue.component('Panel', Collapse.Panel)
-Vue.component('Tooltip', Tooltip)
-Vue.component('ISelect', Select)
-Vue.component('IOption', Option)
+const app = createApp(App)
 
-const app = new Vue({
-  router,
-  store,
-  render: h => h(App)
-})
+app.directive('popover', PopoverDirective)
+app.directive('clipboard', VueClipboard)
+
+app.component('IButton', Button)
+app.component('ISwitch', Switch)
+app.component('Menu', Menu)
+app.component('Submenu', Submenu)
+app.component('MenuItem', MenuItem)
+app.component('Icon', Icon)
+app.component('IHeader', Header)
+app.component('Card', Card)
+app.component('IInput', Input)
+app.component('IForm', Form)
+app.component('FormItem', FormItem)
+app.component('Spin', Spin)
+app.component('Checkbox', Checkbox)
+app.component('Affix', Affix)
+app.component('Tag', Tag)
+app.component('Divider', Divider)
+app.component('Radio', Radio)
+app.component('RadioGroup', RadioGroup)
+app.component('Collapse', Collapse)
+app.component('Panel', Panel)
+app.component('Tooltip', Tooltip)
+app.component('ISelect', Select)
+app.component('IOption', Option)
+app.component('Cell', Cell)
+app.component('CellGroup', CellGroup)
+app.component('ContentPlaceholders', ContentPlaceholders)
+app.component('ContentPlaceholdersText', ContentPlaceholdersText)
+
+app.use(router)
+app.use(store)
+
+app.use(DynamicModal)
+app.use(DynamicDrawer)
+app.use(DynamicPopover)
 
 export default app

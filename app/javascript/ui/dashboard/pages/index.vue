@@ -10,10 +10,10 @@
           size="large"
           class="bg-white"
           type="primary"
+          icon="md-add"
           ghost
           @click="openAddWebsiteModal"
         >
-          <Icon type="md-add" />
           <span class="d-none d-md-inline">Add Website</span>
         </IButton>
       </div>
@@ -41,7 +41,7 @@
 <script>
 import Website from '../components/website'
 import WebsiteForm from 'ui/websites/components/form'
-import { Modal, Message } from 'ui/misc/scripts/dynamic_components'
+import { Modal, Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'Dashboard',
@@ -56,16 +56,14 @@ export default {
   methods: {
     openAddWebsiteModal () {
       Modal.open(WebsiteForm, {
-        on: {
-          success: (website) => {
-            this.$store.commit('ADD_WEBSITE', website)
-            Message.success({ content: 'Website has been added successfully' })
-            Modal.remove()
-          },
-          error: () => {
-            Modal.remove()
-            Message.error({ content: 'Error adding website' })
-          }
+        onSuccess: (website) => {
+          this.$store.commit('ADD_WEBSITE', website)
+          Message.success({ content: 'Website has been added successfully' })
+          Modal.remove()
+        },
+        onError: () => {
+          Modal.remove()
+          Message.error({ content: 'Error adding website' })
         }
       }, {
         title: 'Add Website',

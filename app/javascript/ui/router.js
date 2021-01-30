@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import SetupIndex from 'ui/setup/pages/index'
 import DashboardIndex from 'ui/dashboard/pages/index'
@@ -8,8 +7,6 @@ import ReportsShow from 'ui/reports/pages/show'
 import ReportsShared from 'ui/reports/pages/shared'
 import SettingsIndex from 'ui/settings/pages/index'
 import CustomChecksIndex from 'ui/custom_checks/pages/index'
-
-Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/dashboard' },
@@ -50,8 +47,8 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes
 })
 

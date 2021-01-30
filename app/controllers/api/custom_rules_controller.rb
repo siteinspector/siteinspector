@@ -6,7 +6,9 @@ module Api
     load_and_authorize_resource through: :website, shallow: true
 
     def index
-      render_json_api @custom_rules.order(created_at: :desc).preload(active_results: :website_page)
+      render_json_api @custom_rules.where(website: Website.enabled)
+                                   .order(created_at: :desc)
+                                   .preload(active_results: :website_page)
     end
 
     def show

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Message } from 'ui/misc/scripts/dynamic_components'
+import { Message } from 'view3/src/plugins/dynamic-components'
 
 export default {
   name: 'Context',
