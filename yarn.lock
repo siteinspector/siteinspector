@@ -9084,7 +9084,7 @@ vfile@^4.0.0:
 
 "view3@https://github.com/omohokcoj/view3":
   version "1.0.0"
-  resolved "https://github.com/omohokcoj/view3#c44d17c98c91f0cccfc42389724ba061a48696b3"
+  resolved "https://github.com/omohokcoj/view3#10bccce0abb8bbcfcab04b08906f4f0549be1fd7"
   dependencies:
     async-validator "^3.5.1"
     clipboard "^2.0.6"

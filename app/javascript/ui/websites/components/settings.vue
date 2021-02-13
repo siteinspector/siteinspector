@@ -204,8 +204,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/
-
 form {
   min-height: 85vh;
 }

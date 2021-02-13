@@ -181,8 +181,6 @@ export default {
 <style lang="scss" scoped>
 @import 'ui/misc/styles/breakpoints.scss';
 
-/deep/
-
 .link-header {
   min-height: 30px;
   max-height: 30px;
