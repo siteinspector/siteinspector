@@ -22,6 +22,8 @@ module Crawler
     # @param retries [Boolean]
     # @return [Typhoeus::Response]
     def call(method, url, params: {}, headers: {}, retries: true)
+      url = maybe_escape_url(url)
+
       req = build_request(method, url, params, headers)
 
       run_request(req, retries: retries)
@@ -40,6 +42,14 @@ module Crawler
       end
 
       resp
+    end
+
+    # @param url [String]
+    # @return [String]
+    def maybe_escape_url(url)
+      URI(url).to_s
+    rescue URI::InvalidURIError
+      Addressable::URI.encode(url)
     end
 
     # @param method [String]
