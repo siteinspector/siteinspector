@@ -7,8 +7,8 @@ module Api
     def show
       render json: {
         data: {
-          viewer: shared_url(token: JsonWebToken.encode(wid: @website.id, role: User::VIEWER)),
-          editor: shared_url(token: JsonWebToken.encode(wid: @website.id, role: User::EDITOR))
+          viewer: shared_path(token: JsonWebToken.encode(wid: @website.id, role: User::VIEWER)),
+          editor: shared_path(token: JsonWebToken.encode(wid: @website.id, role: User::EDITOR))
         }
       }
     end
