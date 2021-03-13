@@ -99,7 +99,11 @@ export default {
       return [...this.$store.getters.websites].sort((a, b) => a.domain < b.domain ? -1 : 1)
     },
     shareableLink () {
-      return window.location.origin + this.shareableLinks[this.formData.selectedRole]
+      if (this.shareableLinks[this.formData.selectedRole]) {
+        return window.location.origin + this.shareableLinks[this.formData.selectedRole]
+      } else {
+        return ''
+      }
     }
   },
   mounted () {
