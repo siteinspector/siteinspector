@@ -46,7 +46,7 @@ class WebsitePageError < ApplicationRecord
   validates :status, inclusion: { in: STATUSES }
 
   scope :grammar, -> { where(error_type: GRAMMAR) }
-  scope :spelling, -> { where(error_type: [TYPO, DUPLICATE]) }
+  scope :spelling, -> { where(error_type: SPELLING) }
   scope :active, -> { where.not(error_type: FALSE_POSITIVE) }
 
   def resolved?
