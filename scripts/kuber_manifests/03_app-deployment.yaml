@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    siteURL: "https://www.getsiteinspector.com"
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        siteURL: "https://www.getsiteinspector.com"
+      labels:
+        io.kompose.service: app
+    spec:
+      containers:
+        - args:
+            - bash
+            - -c
+            - rake db:migrate && foreman start
+          env:
+            - name: DATABASE_URL
+              value: postgresql://postgres:postgres@postgres:5432/siteinspector
+            - name: PORT
+              value: "808"
+            - name: RAILS_LOG_TO_STDOUT
+              value: "true"
+            - name: REDIS_URL
+              value: redis://redis:6379/0
+            - name: SIDEKIQ_CONCURRENCY
+              value: "10"
+            - name: SECRET_KEY_BASE
+              value: "secret_key_base"
+          image: siteinspector/siteinspector:latest
+          name: app
+          ports:
+            - containerPort: 808
+          resources: {}
+          volumeMounts:
+            - mountPath: /app
+              name: app-claim0
+          imagePullPolicy: Always
+      restartPolicy: Always
+      volumes:
+        - name: app-claim0
+          persistentVolumeClaim:
+            claimName: app-claim0

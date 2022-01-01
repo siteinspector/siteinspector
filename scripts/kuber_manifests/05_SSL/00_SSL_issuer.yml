@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # Prod API
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: email@example.com
+    privateKeySecretRef:
+      name: account-key-prod
+    solvers:
+    - http01:
+       ingress:
+         class: nginx

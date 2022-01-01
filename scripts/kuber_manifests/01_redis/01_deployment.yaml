@@ -1,0 +1,45 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: redis
+  annotations:
+    siteURL: "https://www.getsiteinspector.com"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      volumes:
+        - name: redis-vol
+          persistentVolumeClaim:
+            claimName: redis-vol
+      containers:
+        - name: redis
+          image: 'redis:5.0'
+          ports:
+            - name: redis
+              containerPort: 6379
+              protocol: TCP
+          resources: #change in for your project
+            limits:
+              cpu: "1000m"
+              memory: 512Mi
+            requests:
+              cpu: "500m"
+              memory: 256Mi
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+          readinessProbe:
+            tcpSocket:
+              port: 6379
+          volumeMounts:
+            - name: redis-vol
+              mountPath: /var/lib/redisql/data
+          imagePullPolicy: IfNotPresent
+      terminationGracePeriodSeconds: 30

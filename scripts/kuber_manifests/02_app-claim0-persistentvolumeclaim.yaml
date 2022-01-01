@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app-claim0
+  name: app-claim0
+  annotations:
+    siteURL: "https://www.getsiteinspector.com"
+spec:
+  accessModes:
+    - ReadWriteOnce
+#  storageClassName: storage_class
+  resources:
+    requests:
+      storage: 100Mi
