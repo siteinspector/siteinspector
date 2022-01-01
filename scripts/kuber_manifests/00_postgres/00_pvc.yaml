@@ -1,0 +1,15 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgres-vol
+  annotations:
+    siteURL: "https://www.getsiteinspector.com"
+spec:
+  accessModes:
+    - ReadWriteOnce
+#  storageClassName: class_name
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem

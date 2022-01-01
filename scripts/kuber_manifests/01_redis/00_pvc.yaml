@@ -1,0 +1,15 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: redis-vol
+  annotations:
+    siteURL: "https://www.getsiteinspector.com"
+spec:
+  accessModes:
+    - ReadWriteOnce
+#  storageClassName: storage_class
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
