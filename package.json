@@ -23,6 +23,7 @@
     "stylelint": "./node_modules/stylelint/bin/stylelint.js \"app/javascript/**/*.{scss,css}\" --fix"
   },
   "version": "1.0.5",
+  "engines" : { "node" : "14.15.4" },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
