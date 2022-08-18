@@ -26,5 +26,6 @@ class WebsitePageWebsiteResource < ApplicationRecord
   has_one :broken_link, -> { broken }, class_name: 'WebsiteResource',
                                        foreign_key: :id,
                                        primary_key: :website_resource_id,
+                                       dependent: :destroy,
                                        inverse_of: 'website_page_website_resources'
 end

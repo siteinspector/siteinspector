@@ -26,7 +26,7 @@ Rails.application.configure do
 
   config.public_file_server.headers = {
     'Cache-Control' => 'public, s-maxage=31536000, max-age=15552000',
-    'Expires' => 1.year.from_now.to_formatted_s(:rfc822)
+    'Expires' => 1.year.from_now.to_fs(:rfc822)
   }
 
   # Compress CSS using a preprocessor.

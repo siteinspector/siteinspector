@@ -57,7 +57,7 @@ RSpec.describe 'Dashboard' do
           find('.ivu-checkbox').click
         end
 
-        expect(website_page_website_resource.reload.is_resolved).to eq true
+        expect(website_page_website_resource.reload.is_resolved).to be true
       end
 
       it 'excludes link' do

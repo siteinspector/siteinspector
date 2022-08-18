@@ -70,9 +70,9 @@ module Siteinspector
     crawl_session.increment!(:enqueued_count)
 
     CheckPageWorker.set(dynamic_queue: crawl_session.website.domain)
-                   .perform_async(crawl_session_id: crawl_session.id,
-                                  origin_page_id: origin_page_id,
-                                  link: link)
+                   .perform_async('crawl_session_id' => crawl_session.id,
+                                  'origin_page_id' => origin_page_id,
+                                  'link' => link)
   end
 
   # @param page [WebsitePage]
@@ -84,7 +84,7 @@ module Siteinspector
       next if skip_link?(page.website, link)
 
       CheckResourceWorker.set(dynamic_queue: page.website.domain)
-                         .perform_async(website_page_id: page.id, link: link, type: type)
+                         .perform_async('website_page_id' => page.id, 'link' => link, 'type' => type)
     end
   end
 end

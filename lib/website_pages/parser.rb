@@ -40,9 +40,7 @@ module WebsitePages
     def parse_images(doc)
       links = doc.xpath('//img/@src').map(&:text)
 
-      normalize_links(links).reject do |link|
-        link.match?(%r{^(?:data:|image/)})
-      end
+      normalize_links(links).grep_v(%r{^(?:data:|image/)})
     end
 
     # @param doc [Nokogiri::HTML::Document]
@@ -69,9 +67,7 @@ module WebsitePages
       links ||= doc.xpath('//item/link').map(&:text).presence
       links ||= URI.extract(doc.to_s).select { |e| e.starts_with?('http') }
 
-      normalize_links(links).reject do |link|
-        link.match?(/^(?:javascript:|tel:|mailto:|data:|image:|#)/)
-      end
+      normalize_links(links).grep_v(/^(?:javascript:|tel:|mailto:|data:|image:|#)/)
     end
 
     # @param links [Array<String>]

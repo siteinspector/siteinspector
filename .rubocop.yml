@@ -5,6 +5,7 @@ require:
 
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
   Exclude:
     - db/schema.rb
     - node_modules/**/*

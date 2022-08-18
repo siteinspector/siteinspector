@@ -30,7 +30,7 @@ module Sidekiq
       Sidekiq::Client.include(Sidekiq::DynamicPush)
 
       Sidekiq.configure_server do |config|
-        Sidekiq.options[:fetch] = Sidekiq::DynamicFetch.new(Sidekiq.options)
+        Sidekiq[:fetch] = Sidekiq::DynamicFetch.new(Sidekiq)
 
         config.on(:startup) { WATCHER.execute }
         config.on(:quiet) { WATCHER.shutdown }
@@ -45,7 +45,7 @@ module Sidekiq
     end
 
     def enabled?
-      Sidekiq.options[:queues].include?('dynamic')
+      Sidekiq[:queues].include?('dynamic')
     end
 
     # @return [Array<String>]

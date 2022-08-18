@@ -53,7 +53,7 @@ module Websites
 
     broken_links_count =
       website.pages_with_errors.sum do |e|
-        e.website_page_website_resources.map(&:broken_link).compact.length
+        e.website_page_website_resources.filter_map(&:broken_link).length
       end
 
     {

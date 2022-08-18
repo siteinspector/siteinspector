@@ -13,7 +13,7 @@ module Api
 
     def create
       if @crawl_session.save!
-        StartCrawlWorker.perform_async(crawl_session_id: @crawl_session.id)
+        StartCrawlWorker.perform_async('crawl_session_id' => @crawl_session.id)
 
         render_json_api @crawl_session
       else

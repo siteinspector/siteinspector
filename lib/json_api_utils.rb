@@ -44,6 +44,6 @@ module JsonApiUtils
   # @param fields [Hash]
   # @return [Hash]
   def parse_fields(fields)
-    fields.map { |key, value| [key.to_sym, value.to_s.split(',')] }.to_h
+    fields.to_h { |key, value| [key.to_sym, value.to_s.split(',')] }
   end
 end
