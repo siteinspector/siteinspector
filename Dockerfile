@@ -1,14 +1,42 @@
-FROM ruby:3.0.0
+FROM ruby:3.1.0 AS webpacker
 
 ENV RAILS_ENV=production
-ENV RAILS_SERVE_STATIC_FILES=true
 
-WORKDIR /opt/siteinspector
+WORKDIR /app
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | sh - && \
+    apt-get install -yq nodejs python && \
+    npm install -g yarn && \
+    gem install shakapacker && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY ./package.json ./yarn.lock ./
+
+RUN yarn install
+
+COPY ./bin/webpacker ./bin/webpacker
+COPY ./config/webpack ./config/webpack
+COPY ./config/webpacker.yml ./config/webpacker.yml
+COPY ./postcss.config.js ./babel.config.js ./
+COPY ./app/javascript ./app/javascript
+
+RUN echo "gem 'shakapacker'" > Gemfile && ./bin/webpacker
+
+FROM ruby:3.1.0 as app
+
+ENV RAILS_ENV=production
+ENV TZ=UTC
+
+WORKDIR /app
 
 COPY ./Gemfile ./Gemfile.lock ./
 
-RUN bundle config set with 'production' && bundle install && gem install foreman
+RUN bundle config set with 'production' && \
+    bundle install && \
+    gem install foreman
 
 COPY . ./
 
-CMD ["/bin/bash"]
+COPY --from=webpacker /app/public/packs ./public/packs
+
+CMD ["foreman", "start"]
