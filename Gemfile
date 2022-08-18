@@ -21,9 +21,9 @@ gem 'rake'
 gem 'rchardet'
 gem 'redis'
 gem 'ruby-spellchecker'
+gem 'shakapacker'
 gem 'sidekiq', require: 'sidekiq/web'
 gem 'typhoeus'
-gem 'webpacker'
 
 group :development do
   gem 'annotate', require: false

@@ -1,5 +1,5 @@
-import 'ui/misc/styles/bootstrap'
-import 'vue-content-placeholders/src/styles'
+import 'ui/misc/styles/bootstrap.scss'
+import 'vue-content-placeholders/src/styles.scss'
 import 'ui/index.scss'
 
 import app from 'ui/index'

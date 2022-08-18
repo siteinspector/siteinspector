@@ -2,28 +2,53 @@
   "name": "siteinspector",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "5.2.1",
+    "@babel/core": "7",
+    "@babel/plugin-transform-runtime": "7",
+    "@babel/preset-env": "7",
+    "@babel/runtime": "7",
     "@vue/compiler-sfc": "^3.0.5",
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.0-beta1",
+    "babel-loader": "8",
+    "babel-plugin-macros": "^3.1.0",
+    "bootstrap": "5.0.0",
+    "compression-webpack-plugin": "9",
     "css-loader": "^5.0.1",
     "kitsu-core": "^8.1.1",
-    "node-sass": "^5.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.16",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.1",
+    "postcss-preset-env": "^7.8.0",
     "qs": "^6.9.3",
-    "sass-loader": "^10.1.1",
+    "sass": "^1.54.4",
+    "sass-loader": "^13.0.2",
+    "shakapacker": "6.4.1",
+    "terser-webpack-plugin": "5",
     "view3": "https://github.com/omohokcoj/view3",
     "vue": "^3.0.0",
     "vue-content-placeholders": "^0.2.1",
     "vue-loader": "^16.1.2",
     "vue-router": "^4.0.0",
-    "vuex": "^4.0.0-rc.2"
+    "vuex": "^4.0.0-rc.2",
+    "webpack": "5",
+    "webpack-assets-manifest": "5",
+    "webpack-cli": "4",
+    "webpack-merge": "5"
+  },
+  "version": "1.1.0",
+  "babel": {
+    "presets": [
+      "./node_modules/shakapacker/package/babel/preset.js"
+    ]
+  },
+  "engines": {
+    "node": ">= 16.13.0"
   },
   "scripts": {
     "eslint": "./node_modules/eslint/bin/eslint.js \"app/javascript/**/*.{js,vue}\" --fix",
     "stylelint": "./node_modules/stylelint/bin/stylelint.js \"app/javascript/**/*.{scss,css}\" --fix"
   },
-  "version": "1.0.5",
-  "engines" : { "node" : "14.15.4" },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
@@ -34,8 +59,6 @@
     "eslint-plugin-vue": "^7.2.0",
     "stylelint": "^13.8.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
-    "stylelint-scss": "^3.0.0",
-    "webpack-bundle-analyzer": "^4.2.0",
-    "webpack-dev-server": "^3.10.3"
+    "stylelint-scss": "^3.0.0"
   }
 }
