@@ -50,11 +50,7 @@ module Siteinspector
     # @param path [String]
     # @return [String]
     def match?(pattern, path)
-      if pattern.ends_with?('*')
-        path.starts_with?(pattern.delete_suffix('*'))
-      else
-        path == pattern
-      end
+      Regexp.new("\\A#{Regexp.escape(pattern)}\\z".gsub('\\*', '.*'), 'i').match?(path)
     end
   end
 end
