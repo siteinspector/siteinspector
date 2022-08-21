@@ -85,6 +85,7 @@ module Crawler
     def html_page?(resp)
       return true if resp.effective_url.include?('sitemap')
       return false if resp.body.size > MAX_SIZE
+      return true if resp.body.include?('<html')
 
       content_type = Marcel::MimeType.for(resp.body)
 
