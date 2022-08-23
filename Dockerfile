@@ -27,7 +27,7 @@ FROM ruby:3.1.0 as app
 ENV RAILS_ENV=production
 ENV TZ=UTC
 
-WORKDIR /app
+WORKDIR /opt/siteinspector
 
 COPY ./Gemfile ./Gemfile.lock ./
 
