@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/docker/v/siteinspector/siteinspector)
 ![Pulls](https://img.shields.io/docker/pulls/siteinspector/siteinspector)
 
-[![Screenshot](https://www.getsiteinspector.com/screenshot.png)](https://www.getsiteinspector.com)
+[![Screenshot](https://www.getsiteinspector.com/packs/media/landing/images/si8-e5152df8eadeeabe91ef6f1d63170f9d.png)](https://www.getsiteinspector.com)
 
 SiteInspector is a free, open-source tool that helps to find spelling errors, grammatical errors, and broken links on websites. It's written in Ruby/Rails with Vue.js front-end and uses a PostgreSQL database and Sidekiq with Redis to perform concurrent crawling.
 
