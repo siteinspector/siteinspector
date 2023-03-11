@@ -36,7 +36,7 @@
     "webpack-cli": "4",
     "webpack-merge": "5"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "babel": {
     "presets": [
       "./node_modules/shakapacker/package/babel/preset.js"
