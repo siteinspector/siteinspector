@@ -50,7 +50,7 @@ module Siteinspector
     # @param path [String]
     # @return [String]
     def match?(pattern, path)
-      Regexp.new("\\A#{Regexp.escape(pattern)}\\z".gsub('\\*', '.*'), 'i').match?(path)
+      File.fnmatch(pattern, path, File::FNM_CASEFOLD)
     end
   end
 end
