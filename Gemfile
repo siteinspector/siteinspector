@@ -13,6 +13,7 @@ gem 'jsonapi-serializer', require: 'fast_jsonapi'
 gem 'jwt'
 gem 'lograge'
 gem 'marcel'
+gem 'nokogiri'
 gem 'oj'
 gem 'pg'
 gem 'puma'
@@ -24,6 +25,7 @@ gem 'ruby-spellchecker'
 gem 'shakapacker'
 gem 'sidekiq', require: 'sidekiq/web'
 gem 'typhoeus'
+gem 'tzinfo-data'
 
 group :development do
   gem 'annotate', require: false

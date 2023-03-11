@@ -166,13 +166,13 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8-aarch64-linux)
+    nokogiri (1.14.2-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.13.8-arm64-darwin)
+    nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
+    nokogiri (1.14.2-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
+    nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     oj (3.13.20)
     orm_adapter (0.5.0)
@@ -188,7 +188,7 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
-    racc (1.6.0)
+    racc (1.6.2)
     rack (2.2.4)
     rack-proxy (0.7.2)
       rack
@@ -297,6 +297,8 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     unicode-display_width (2.2.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -341,6 +343,7 @@ DEPENDENCIES
   listen
   lograge
   marcel
+  nokogiri
   oj
   pg
   pry-rails
@@ -359,6 +362,7 @@ DEPENDENCIES
   sidekiq
   simplecov
   typhoeus
+  tzinfo-data
   web-console
   webmock
   webrick
