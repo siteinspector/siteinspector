@@ -1,6 +1,5 @@
 # SiteInspector
 
-![Build](https://img.shields.io/github/workflow/status/siteinspector/siteinspector/Rspec)
 ![Version](https://img.shields.io/docker/v/siteinspector/siteinspector)
 ![Pulls](https://img.shields.io/docker/pulls/siteinspector/siteinspector)
 
