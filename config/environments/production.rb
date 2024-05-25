@@ -127,4 +127,8 @@ Rails.application.configure do
   end
 
   config.middleware.insert_before(Rack::Sendfile, Rack::Deflater)
+
+  # The following is required to make the api accept requests from several domains
+  config.session_store :cookie_store, key: '_site_inspector_session', domain: :all, secure: Rails.env.production?
+  config.middleware.use CustomCookieDomain, '_site_inspector_session'
 end

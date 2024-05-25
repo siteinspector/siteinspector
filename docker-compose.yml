@@ -18,6 +18,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       PORT: 808
       SIDEKIQ_CONCURRENCY: 10
+      # ALLOWED_HOSTS: 'example.com,example2.com'
 
   postgres:
     image: 'postgres:12.2'

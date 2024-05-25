@@ -26,6 +26,7 @@ gem 'shakapacker'
 gem 'sidekiq', require: 'sidekiq/web'
 gem 'typhoeus'
 gem 'tzinfo-data'
+gem 'rack-cors'
 
 group :development do
   gem 'annotate', require: false
