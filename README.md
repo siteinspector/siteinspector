@@ -1,3 +1,5 @@
+## [**Check your website for errors automatically using our Cloud SaaS for $9.99/month**](https://www.triplechecker.com)
+
 # SiteInspector
 
 ![Version](https://img.shields.io/docker/v/siteinspector/siteinspector)
