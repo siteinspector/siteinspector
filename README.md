@@ -41,6 +41,10 @@ wget https://raw.githubusercontent.com/siteinspector/siteinspector/master/docker
 docker-compose up
 ```
 
+## Language support
+
+Currently spelling and grammar checks are only available for English. See https://github.com/siteinspector/siteinspector/issues/11 for more information.
+
 ## License
 
 SiteInspector is licensed under the AGPL v3 license.
